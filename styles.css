@@ -1,0 +1,199 @@
+@font-face {
+  font-family: 'Coraline';
+  src: url('katy_berry/Coraline\'s\ Cat.otf') format('opentype'); 
+  font-weight: normal;
+}
+
+
+
+.card {
+  background-color: #f4ecc6; /* Cor de papel envelhecido */
+  border-radius: 10px;
+  padding: 25px 20px 20px 40px; /* Ajuste o padding-top para alinhar o texto com a primeira linha */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left; /* Texto alinhado à esquerda */
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  line-height: 25px; /* Exatamente igual ao espaçamento da linha vermelha */
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: 2px;
+  height: 100%;
+  background-color: rgb(129, 0, 0); /* Linha vermelha vertical */
+  z-index: -1;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 24px,
+    rgb(129, 0, 0) 25px
+  );
+  z-index: -1;
+}
+
+h1 {
+  font-family: 'Coraline';
+  color: rgb(168, 32, 55);
+  font-size: 18px;
+  margin: 0; /* Remove qualquer espaçamento adicional */
+  line-height: 25px; /* Alinha com a grade de linhas */
+}
+
+p {
+  font-size: 16px;
+  margin: 0; /* Remove a margem padrão */
+  padding: 0; /* Remove o padding padrão */
+  line-height: 25px; /* Alinha perfeitamente com as linhas vermelhas */
+}
+
+
+h1 {
+  font-family: 'Coraline';
+  color: rgb(168, 32, 55);
+  font-size: 18px; /* Ajuste para legibilidade */
+  margin: 0; /* Remove espaçamento padrão */
+  padding-top: 0; /* Garante alinhamento com a primeira linha */
+}
+
+p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  background-color: pink;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+
+
+  /* Posicionando os gatinhos sobre as bordas da carta */
+  .cat-left, .cat-right {
+    position: absolute;
+    top: 50%; /* Posiciona no meio da carta */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    z-index: 2; /* Gatos acima da main */
+  }
+  
+  .cat-left {
+    left: 310px; /* Coloca o gato sobre a borda esquerda da carta */
+  }
+  
+  .cat-right {
+    right: 360px; /* Coloca o gato sobre a borda direita da carta */
+  }
+  
+
+
+  .cat-left img {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .cat-right img {
+    width: 139px;
+    height: auto;
+    cursor: pointer;
+
+  }
+
+  .gift {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .animation {
+    display: none;
+    margin-top: 10px;
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+  }
+  
+  #giftAnimation img {
+    width: 170px;
+    animation: widen 2s forwards; /* Inicia o alargamento com duração de 2 segundos */
+  }
+  
+  @keyframes widen {
+    0% {
+      transform: scaleX(1); /* Começa com tamanho normal */
+    }
+    50% {
+      transform: scaleX(1.5); /* Alargamento parcial no meio da animação */
+    }
+    100% {
+      transform: scaleX(2); /* Alargamento total no final */
+    }
+  }
+  
+  .message {
+    display: none;
+    font-size: 20px;
+    margin-top: 10px;
+    color: rgb(168, 32, 55);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }  
+  
+  @keyframes pop {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Animação de pulo */
+@keyframes jump {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-20px); }
+  50% { transform: translateY(0); }
+}
+
+img.jump {
+  animation: jump 0.5s ease-in-out;
+}
+
